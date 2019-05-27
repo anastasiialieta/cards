@@ -1,0 +1,81 @@
+
+
+.main {
+  display: flex;
+  justify-content: space-between;
+}
+body {
+  background: url('../images/bg.jpg'), rgba(0,0,0,.5) top center;
+  padding: 20px 50px;
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, .5);
+  margin: 20px auto;
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+  
+}
+.card-holder {
+  perspective: 1000px;
+}
+.card {
+  position: relative;
+  display: inline-block;
+  width: 120px;
+  height: 170px;
+/*   border: 1px solid black; */
+  border-radius: 5px;
+}
+.card-face,
+.card-back {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 120px;
+  height: 170px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform-style: preserve-3d;
+}
+.card-face {
+    background-image: url(https://media2.24aul.ru/imgs/5b88ee7f5c0b7a0001d5bb18/igralnye-karty-bee-92-krasnaya-rubashka-2-12034284.jpg);
+  backface-visibility: hidden;
+  z-index: 2;
+}
+.card-back {
+  background-image: url(https://cs.pikabu.ru/post_img/2013/05/31/6/1369985287_460366729.jpg);
+  height: 100%;
+    backface-visibility: visible;
+}
+
+.card:hover .card-face {
+  animation: rotate-front 700ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+
+}
+.card:hover .card-back {
+  animation: rotate-front 700ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes rotate-front {
+  0% {
+    transform: rotateY(0deg) scale(1);
+  }
+
+  100% {
+    transform: rotateY(180deg) scale(1);
+  }
+}
+
+@keyframes rotate-back {
+  0% {
+    transform: rotateY(0deg) scale(1);
+  }
+
+  100% {
+    transform: rotateY(180deg) scale(1);
+  }
+}
